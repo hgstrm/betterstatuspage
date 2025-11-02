@@ -1,0 +1,399 @@
+{
+  "ai": {
+    "systemPrompt": "You are a technical writing assistant helping to improve the clarity and professionalism of service status updates.\n\nYour task is to rewrite informal technical messages into clear, professional communications suitable for public status pages.\n\nFocus on:\n- Professional tone\n- Clear communication\n- Accurate technical information\n- Customer-focused language",
+    "training": {
+      "referenceStatuspageUrl": "",
+      "referenceStatuspageId": "",
+      "enabled": false,
+      "maxExamples": 10
+    },
+    "styleGuidelines": [
+      "Professional but approachable tone",
+      "Active voice, present tense",
+      "Focus on customer impact and team response",
+      "Avoid overly technical jargon",
+      "Use 'service interruption' or 'degraded performance' instead of colloquial terms",
+      "1-3 clear sentences",
+      "Honest and transparent"
+    ],
+    "examples": [
+      {
+        "input": "there's an outage with the API",
+        "output": "We are experiencing a service interruption affecting our API. We are actively investigating the issue."
+      },
+      {
+        "input": "database is down, looking into it",
+        "output": "We are experiencing a service interruption with our database. Our team is actively investigating and working on a resolution."
+      },
+      {
+        "input": "deployments failing for some users",
+        "output": "We are investigating reports of deployment failures affecting a subset of users. Our engineering team is working to identify the root cause."
+      }
+    ],
+    "bannedWords": [
+      {
+        "word": "outage",
+        "replacement": "service interruption, degraded performance, or elevated error rates"
+      },
+      {
+        "word": "down",
+        "replacement": "unavailable"
+      },
+      {
+        "word": "broken",
+        "replacement": "not functioning correctly"
+      },
+      {
+        "word": "crashed",
+        "replacement": "stopped responding"
+      }
+    ],
+    "productNames": [
+      {
+        "incorrect": [
+          "nextjs",
+          "next.js"
+        ],
+        "correct": "Next.js"
+      },
+      {
+        "incorrect": [
+          "edge runtime"
+        ],
+        "correct": "Edge Runtime"
+      },
+      {
+        "incorrect": [
+          "edge functions"
+        ],
+        "correct": "Edge Functions"
+      },
+      {
+        "incorrect": [
+          "serverless functions"
+        ],
+        "correct": "Serverless Functions"
+      },
+      {
+        "incorrect": [
+          "edge config"
+        ],
+        "correct": "Edge Config"
+      },
+      {
+        "incorrect": [
+          "speed insights"
+        ],
+        "correct": "Speed Insights"
+      },
+      {
+        "incorrect": [
+          "web analytics"
+        ],
+        "correct": "Web Analytics"
+      },
+      {
+        "incorrect": [
+          "incremental static regeneration",
+          "isr"
+        ],
+        "correct": "Incremental Static Regeneration"
+      },
+      {
+        "incorrect": [
+          "preview environment"
+        ],
+        "correct": "Preview Environment"
+      },
+      {
+        "incorrect": [
+          "production environment"
+        ],
+        "correct": "Production Environment"
+      },
+      {
+        "incorrect": [
+          "cron jobs"
+        ],
+        "correct": "Cron Jobs"
+      },
+      {
+        "incorrect": [
+          "draft mode"
+        ],
+        "correct": "Draft Mode"
+      },
+      {
+        "incorrect": [
+          "instant rollback"
+        ],
+        "correct": "Instant Rollback"
+      }
+    ]
+  },
+  "styleGuide": {
+    "description": "Style guide rules for consistent documentation and messaging",
+    "rules": [
+      {
+        "original": "outage",
+        "replacement": "service interruption, degraded performance, or elevated error rates",
+        "explanation": "We don't use the word 'outage'",
+        "caseSensitive": false
+      },
+      {
+        "original": "e-mail",
+        "replacement": "email",
+        "explanation": "",
+        "caseSensitive": false
+      },
+      {
+        "original": "nextjs",
+        "replacement": "Next.js",
+        "explanation": "Product name",
+        "caseSensitive": false
+      },
+      {
+        "original": "Github",
+        "replacement": "GitHub",
+        "explanation": "GitHub should be capitalized correctly",
+        "caseSensitive": true
+      },
+      {
+        "original": "serverless functions",
+        "replacement": "Serverless Functions",
+        "explanation": "Product feature",
+        "caseSensitive": false
+      },
+      {
+        "original": "edge functions",
+        "replacement": "Edge Functions",
+        "explanation": "Product feature",
+        "caseSensitive": false
+      }
+    ]
+  },
+  "banner": {
+    "enabled": false,
+    "message": "",
+    "variant": "info"
+  },
+  "aiGateway": {
+    "defaultModel": "openai/gpt-3.5-turbo",
+    "temperature": 0.7,
+    "maxTokens": 500,
+    "systemPrompt": "You are a technical writing assistant specializing in status page communications for customer-facing service updates.\n\nYour task: Transform brief technical notes into clear, professional status updates that customers can understand.\n\nKey requirements:\n- ALWAYS expand vague statements into specific, informative updates\n- Include what is happening, what the impact is, and what is being done\n- Write for a general audience, not just technical users\n- Be transparent and specific without being overly technical\n\nStyle guidelines:\n- Professional but approachable tone\n- Active voice: \"We are investigating...\" not \"Investigation is ongoing...\"\n- Be specific: \"Database connectivity issues\" not \"The issue\"\n- Add context: If something \"resurfaced\", explain it's a recurrence of a previous issue\n- Include action: Always mention what the team is doing about it\n- Avoid vague phrases like \"The issue\" or \"It's broken\"\n\nExamples of good updates:\n- \"We are experiencing intermittent API errors affecting approximately 10% of requests. Our engineering team is investigating the root cause.\"\n- \"Database performance has degraded, resulting in slower response times. We are working to restore normal operation.\"\n- \"The previously resolved authentication issue has recurred. Our team is implementing a permanent fix.\"\n\nRemember: Customers need to know WHAT is wrong, HOW it affects them, and WHAT you're doing about it.",
+    "training": {
+      "enabled": false,
+      "statuspageUrl": "",
+      "maxExamples": 5
+    }
+  },
+  "chromeAI": {
+    "temperature": 0.7,
+    "suggestTemperature": 0.8,
+    "topK": 40,
+    "maxStyleRules": 10,
+    "maxStyleGuidelines": 5,
+    "training": {
+      "enabled": false,
+      "statuspageUrl": "",
+      "maxExamples": 5
+    }
+  },
+  "localAI": {
+    "wordReplacements": [
+      {
+        "pattern": "\\boutage\\b",
+        "replacement": "service interruption",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bdown\\b",
+        "replacement": "unavailable",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bbroken\\b",
+        "replacement": "not functioning correctly",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bcrashed\\b",
+        "replacement": "stopped responding",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bthere'?s\\b",
+        "replacement": "There is",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bwe'?re\\b",
+        "replacement": "We are",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bit'?s\\b",
+        "replacement": "It is",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bcan'?t\\b",
+        "replacement": "cannot",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bwon'?t\\b",
+        "replacement": "will not",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bdoesn'?t\\b",
+        "replacement": "does not",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bdidn'?t\\b",
+        "replacement": "did not",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bisn'?t\\b",
+        "replacement": "is not",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\baren'?t\\b",
+        "replacement": "are not",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bhasn'?t\\b",
+        "replacement": "has not",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bhaven'?t\\b",
+        "replacement": "have not",
+        "flags": "gi"
+      }
+    ],
+    "phraseReplacements": [
+      {
+        "pattern": "\\bthere is (a|an) (issue|problem|bug)",
+        "replacement": "We are experiencing $2s",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bwe have (a|an) (issue|problem|bug)",
+        "replacement": "We are experiencing $2s",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bthe (api|service|system) is down\\b",
+        "replacement": "The $1 is currently unavailable",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bgoing down\\b",
+        "replacement": "experiencing issues",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bfix it\\b",
+        "replacement": "resolve this issue",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\bworking on it\\b",
+        "replacement": "actively investigating",
+        "flags": "gi"
+      },
+      {
+        "pattern": "\\blooking into it\\b",
+        "replacement": "investigating this issue",
+        "flags": "gi"
+      }
+    ],
+    "minMessageLength": 50,
+    "improvementSuggestions": {
+      "outage": "Consider using \"service interruption\" instead of \"outage\"",
+      "contractions": "Expand contractions for a more professional tone",
+      "context": "Add context about what your team is doing to resolve the issue",
+      "detail": "Consider adding more detail about the impact and timeline",
+      "punctuation": "End with proper punctuation"
+    }
+  },
+  "ui": {
+    "defaults": {
+      "incidentStatus": "investigating",
+      "incidentImpact": "minor"
+    },
+    "labels": {
+      "impact": {
+        "none": "None - Maintenance",
+        "minor": "Minor - Minimal impact",
+        "major": "Major - Partial service disruption",
+        "critical": "Critical - Full outage"
+      },
+      "incidentStatus": {
+        "investigating": "Investigating",
+        "identified": "Identified",
+        "monitoring": "Monitoring",
+        "resolved": "Resolved",
+        "postmortem": "Postmortem"
+      },
+      "componentStatus": {
+        "operational": "Operational",
+        "degraded_performance": "Degraded Performance",
+        "partial_outage": "Partial Outage",
+        "major_outage": "Major Outage",
+        "under_maintenance": "Under Maintenance"
+      }
+    },
+    "colors": {
+      "incidentStatus": {
+        "investigating": "bg-blue-100 text-blue-800",
+        "identified": "bg-yellow-100 text-yellow-800",
+        "monitoring": "bg-purple-100 text-purple-800",
+        "resolved": "bg-green-100 text-green-800",
+        "postmortem": "bg-zinc-100 text-zinc-800"
+      },
+      "incidentImpact": {
+        "none": "bg-zinc-100 text-zinc-800 border-zinc-200",
+        "minor": "bg-yellow-100 text-yellow-800 border-yellow-200",
+        "major": "bg-orange-100 text-orange-800 border-orange-200",
+        "critical": "bg-red-100 text-red-800 border-red-200"
+      },
+      "incidentImpactHeader": {
+        "none": "bg-zinc-500",
+        "minor": "bg-yellow-500",
+        "major": "bg-orange-500",
+        "critical": "bg-red-600"
+      },
+      "componentStatus": {
+        "operational": "bg-green-100 text-green-800 hover:bg-green-100",
+        "degraded_performance": "bg-yellow-100 text-yellow-800 hover:bg-yellow-100",
+        "partial_outage": "bg-orange-100 text-orange-800 hover:bg-orange-100",
+        "major_outage": "bg-red-100 text-red-800 hover:bg-red-100",
+        "under_maintenance": "bg-blue-100 text-blue-800 hover:bg-blue-100"
+      },
+      "componentStatusDot": {
+        "operational": "bg-green-500",
+        "degraded_performance": "bg-yellow-500",
+        "partial_outage": "bg-orange-500",
+        "major_outage": "bg-red-500",
+        "under_maintenance": "bg-blue-500"
+      }
+    },
+    "icons": {
+      "componentStatus": {
+        "operational": "✓",
+        "degraded_performance": "⚠",
+        "partial_outage": "⚠",
+        "major_outage": "✕",
+        "under_maintenance": "🔧"
+      }
+    }
+  }
+}
